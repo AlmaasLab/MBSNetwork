@@ -1,0 +1,3 @@
+#!/bin/bash -ue
+
+python -m cli "$@"

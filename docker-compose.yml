@@ -1,0 +1,52 @@
+networks:
+  mbs-net:
+    name: mbs-net
+
+services:
+  mbs:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    container_name: mbs
+    build:
+      context: .
+      target: dev
+    networks:
+      - mbs-net
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "python3", "-c", "import psycopg2; conn = psycopg2.connect('dbname=postgres user=postgres host=postgres'); conn.close()"]
+      interval: 10s
+      timeout: 5s
+      retries: 500
+    env_file:
+      - .env
+    volumes:
+      - .:/MBSNetwork
+    command: ["sleep", "infinity"]
+
+  postgres:
+    container_name: mbs-postgres
+    image: postgres:16
+    networks:
+      - mbs-net
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=${PG_DB}
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=${PG_PASSWORD}
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    env_file:
+      - .env
+    volumes:
+      - mbs-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  mbs-postgres-data:

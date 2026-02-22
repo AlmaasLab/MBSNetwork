@@ -1,0 +1,39 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/postgres
+{
+	"name": "MBSNetwork",
+    "dockerComposeFile": "../docker-compose.yml",
+	"service": "mbs",
+	"workspaceFolder": "/MBSNetwork",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.languageServer": "Pylance",
+				"editor.defaultFormatter": "charliermarsh.ruff",
+				"editor.formatOnSave": true,
+				"editor.codeActionsOnSave": {
+				  "source.organizeImports": "explicit"
+				}
+			  },
+			"extensions": [
+				"charliermarsh.ruff",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"yzhang.markdown-all-in-one",
+				"ms-azuretools.vscode-docker",
+				"GitHub.copilot",
+				"eamodio.gitlens",
+				"timonwong.shellcheck",
+				"ms-python.mypy-type-checker",
+				"tamasfe.even-better-toml",
+				"esbenp.prettier-vscode",
+				"foxundermoon.shell-format",
+				"ms-toolsai.jupyter",
+				"ms-toolsai.vscode-jupyter-cell-tags",
+				"ms-toolsai.jupyter-renderers",
+				"ms-toolsai.vscode-jupyter-slideshow"
+			]
+		}
+	}
+}

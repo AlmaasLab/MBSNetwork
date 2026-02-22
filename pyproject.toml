@@ -1,0 +1,78 @@
+[tool.poetry]
+name = "MBSNetwork"
+description = "Metal binding site network (MBSNetwork)"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.2.2"
+numpy = "^1.26"
+tqdm = "^4.66.4"
+open3d = "^0.18.0"
+biopython = "^1.84"
+joblib = "^1.4.2"
+networkx = "^3.3"
+seaborn = "^0.13.2"
+matplotlib = "^3.9.0"
+sqlalchemy = "^2.0.29"
+psycopg = {extras = ["binary"], version = "^3.1.10"}
+sqlalchemy-utils = {git = "https://github.com/kvesteri/sqlalchemy-utils.git"}
+types-sqlalchemy-utils = "^1.0.1"
+types-requests = "^2.32.0.20240523"
+
+# TODO: Temporary workaround until Open3d dependencies is compatible with Poetry
+scikit-learn = "^1.5.0"
+pyyaml = "^6.0.1"
+addict = "^2.4.0"
+pillow = "^10.3.0"
+pyquaternion = "^0.9.9"
+aiohttp = "^3.9.5"
+aiofiles = "^23.2.1"
+types-aiofiles = "^23.2.0.20240403"
+types-networkx = "^3.2.1.20240531"
+pandas-stubs = "^2.2.2.240603"
+types-tqdm = "^4.66.0.20240417"
+pydantic = "^2.7.4"
+pydantic-settings = "^2.4.0"
+orjson = "^3.10.7"
+pyvis = "^0.3.2"
+igraph = "^0.11.8"
+leidenalg = "^0.10.2"
+py4cytoscape = "^1.12.0"
+nglview = "2.7.7"
+ipywidgets = "7.7.5"
+
+[tool.poetry.dev-dependencies]
+pytest = "^8.1.1"
+pytest-env = "^1.0.3"
+ruff = "^0.3.5"
+mypy = "1.10.0"
+
+[tool.ruff.lint]
+select = [
+    "F", 
+    "E", 
+    "W",
+    "FA",
+    "UP",
+    "FLY002",
+    "PYI",
+    "PTH",
+    "TCH",
+    "PLC0132"
+]
+ignore = [
+    "E111",
+    "E114",
+    "E203",
+    "E266", 
+    "E501", 
+    "E722", 
+    "E741",
+    "W191",
+    "UP040"
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401"]
+

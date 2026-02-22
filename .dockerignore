@@ -1,0 +1,11 @@
+Dockerfile
+.dockerignore
+.git
+.env
+.vscode
+.devcontainer
+.gitignore
+.mypy_cache
+.pytest_cache
+.ruff_cache
+__pycache__
