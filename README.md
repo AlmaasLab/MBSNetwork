@@ -8,6 +8,8 @@ Data and analysis associated with the manuscript:
 
 Preprint: bioRxiv.
 
+Zenodo: [![DOI](https://zenodo.org/badge/DOI/<doi>.svg)](https://doi.org/<doi>)
+
 ## Repository structure
 
 * `src/` — source code and analysis scripts
